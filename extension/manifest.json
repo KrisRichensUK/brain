@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Snapshot History",
+  "version": "0.1.0",
+  "description": "Track your recent clipboard copies in Chrome and quickly revisit their pages.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Snapshot History"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

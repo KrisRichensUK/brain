@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Snapshot History</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Snapshot History</h1>
+      <button id="refresh">Refresh</button>
+    </header>
+    <main>
+      <p id="empty-state" class="empty">No clipboard copies captured yet.</p>
+      <ul id="history" class="history"></ul>
+    </main>
+    <template id="history-item-template">
+      <li class="history-item">
+        <div class="history-item__meta">
+          <span class="history-item__source"></span>
+          <time class="history-item__time"></time>
+        </div>
+        <p class="history-item__text"></p>
+        <div class="history-item__actions">
+          <a class="history-item__link" target="_blank" rel="noopener">Open page</a>
+          <button class="history-item__summarize">Summarize</button>
+        </div>
+        <p class="history-item__summary" hidden></p>
+      </li>
+    </template>
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
