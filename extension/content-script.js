@@ -1,21 +1,63 @@
 (function () {
-  function handleCopy(event) {
-    try {
-      const selection = window.getSelection();
-      const selectedText = selection ? selection.toString() : "";
-      let clipboardText = "";
+  function getTextFromClipboardEvent(event) {
+    if (!event || !event.clipboardData) {
+      return "";
+    }
 
-      if (event && event.clipboardData) {
-        clipboardText = event.clipboardData.getData("text/plain");
+    try {
+      return event.clipboardData.getData("text/plain") || "";
+    } catch (error) {
+      return "";
+    }
+  }
+
+  function getSelectionText() {
+    const selection = window.getSelection();
+    if (selection) {
+      const text = selection.toString();
+      if (text) {
+        return text;
+      }
+    }
+
+    const activeElement = document.activeElement;
+    if (!activeElement) {
+      return "";
+    }
+
+    const isInput =
+      activeElement instanceof HTMLInputElement ||
+      activeElement instanceof HTMLTextAreaElement;
+
+    if (isInput) {
+      const { selectionStart, selectionEnd, value = "" } = activeElement;
+      if (
+        typeof selectionStart === "number" &&
+        typeof selectionEnd === "number" &&
+        selectionEnd > selectionStart
+      ) {
+        return value.slice(selectionStart, selectionEnd);
       }
 
-      const text = (clipboardText || selectedText || "").trim();
+      return value;
+    }
+
+    if (activeElement.isContentEditable) {
+      return activeElement.textContent || "";
+    }
+
+    return "";
+  }
+
+  async function handleCopy(event) {
+    try {
+      const text = (getTextFromClipboardEvent(event) || getSelectionText() || "").trim();
 
       if (!text) {
         return;
       }
 
-      chrome.runtime.sendMessage({
+      await chrome.runtime.sendMessage({
         type: "clipboard-copy",
         payload: {
           text,
@@ -30,4 +72,5 @@
   }
 
   document.addEventListener("copy", handleCopy, true);
+  document.addEventListener("cut", handleCopy, true);
 })();

@@ -3,7 +3,7 @@
 Snapshot History captures the text you copy from websites and keeps a lightweight, browser-integrated clipboard history. Quickly revisit the source page or generate a concise summary of what you copied without leaving the browser.
 
 ## Features
-- Automatically records copy events from any page you visit.
+- Automatically records copy and cut events from the pages you visit, including selections made inside text inputs.
 - Stores the copied text, page title, and timestamp in a searchable history.
 - Re-open the original page directly from the popup.
 - Generate on-device summaries of copied snippets for quick recall.
