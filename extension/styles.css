@@ -1,0 +1,161 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  padding: 0;
+  background: #f7f7f8;
+  color: #1f1f24;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1c1c1f;
+    color: #f6f6f8;
+  }
+}
+
+header {
+  align-items: center;
+  background: #2b6cb0;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+header h1 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+header button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.7rem;
+}
+
+header button:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+main {
+  padding: 0.75rem;
+}
+
+.empty {
+  color: #6f6f79;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.history-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  padding: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .history-item {
+    background: #2a2a32;
+    box-shadow: none;
+  }
+}
+
+.history-item__meta {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.history-item__source {
+  font-weight: 600;
+}
+
+.history-item__text {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+  white-space: pre-wrap;
+}
+
+.history-item__actions {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.history-item__link {
+  color: #2b6cb0;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.history-item__link:hover {
+  text-decoration: underline;
+}
+
+.history-item__summarize {
+  background: #edf2f7;
+  border: none;
+  border-radius: 6px;
+  color: #2d3748;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.6rem;
+}
+
+.history-item__summarize:hover {
+  background: #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .history-item__link {
+    color: #90cdf4;
+  }
+
+  .history-item__summarize {
+    background: #3a3a44;
+    color: #f7fafc;
+  }
+
+  .history-item__summarize:hover {
+    background: #4a4a56;
+  }
+}
+
+.history-item__summary {
+  background: rgba(43, 108, 176, 0.07);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: 0.5rem 0 0;
+  padding: 0.5rem;
+  white-space: pre-wrap;
+}
+
+@media (prefers-color-scheme: dark) {
+  .history-item__summary {
+    background: rgba(144, 205, 244, 0.12);
+  }
+}
