@@ -1,0 +1,21 @@
+{
+  "name": "@proof-of-access/api",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@proof-of-access/adapters": "0.1.0",
+    "@proof-of-access/affix-client": "0.1.0",
+    "@proof-of-access/domain": "0.1.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.1"
+  }
+}
